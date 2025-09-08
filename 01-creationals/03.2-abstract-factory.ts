@@ -1,34 +1,34 @@
 /**
  * ! Abstract Factory:
- * Es un patrón de diseño que permite crear familias de objetos relacionados
- * sin especificar sus clases concretas.
+ * It's a design pattern that allows creating families of related objects
+ * without specifying their concrete classes.
  *
- * En lugar de crear objetos individuales directamente,
- * creamos fábricas que producen un conjunto de objetos relacionados.
+ * Instead of creating individual objects directly,
+ * we create factories that produce a set of related objects.
  *
- * * Es útil cuando necesitas crear objetos que son parte de una familia
- * * y quieres asegurarte de que estos objetos se complementen entre sí.
+ * * It's useful when you need to create objects that are part of a family
+ * * and you want to ensure that these objects complement each other.
  *
- * https://refactoring.guru/es/design-patterns/abstract-factory
+ * https://refactoring.guru/design-patterns/abstract-factory
  */
 
 /**
- * !Instrucciones:
- 	1.Completen las Clases de Productos:
-    •	ElectricCar debe implementar Vehicle y mostrar el mensaje "Ensamblando un auto eléctrico".
-    •	GasCar debe implementar Vehicle y mostrar el mensaje "Ensamblando un auto de combustión".
-    •	ElectricEngine debe implementar Engine y mostrar el mensaje "Arrancando motor eléctrico".
-    •	GasEngine debe implementar Engine y mostrar el mensaje "Arrancando motor de combustión".
+ * !Instructions:
+ 	1. Complete the Product Classes:
+    •	ElectricCar should implement Vehicle and show the message "Assembling an electric car".
+    •	GasCar should implement Vehicle and show the message "Assembling a gas car".
+    •	ElectricEngine should implement Engine and show the message "Starting electric engine".
+    •	GasEngine should implement Engine and show the message "Starting gas engine".
 
-	2.	Completen las Clases de Fábricas:
-    •	ElectricVehicleFactory debe crear un ElectricCar y un ElectricEngine.
-    •	GasVehicleFactory debe crear un GasCar y un GasEngine.
+	2.	Complete the Factory Classes:
+    •	ElectricVehicleFactory should create an ElectricCar and an ElectricEngine.
+    •	GasVehicleFactory should create a GasCar and a GasEngine.
 
-	3. Prueben el Código:
-	  •	Ejecuten el código para asegurarse de que cada fábrica produce el tipo correcto de vehículo y motor.
+	3. Test the Code:
+	  •	Run the code to ensure each factory produces the correct type of vehicle and engine.
 
  */
-// 1. Interfaces de Vehicle y Engine
+// 1. Vehicle and Engine interfaces
 interface Vehicle {
   assemble(): void;
 }
@@ -37,46 +37,46 @@ interface Engine {
   start(): void;
 }
 
-// 2. Clases Concretas de Productos
+// 2. Concrete Product Classes
 
 class ElectricCar {
-  // Implementación del método assemble
-  // 'Ensamblando un auto eléctrico'
+  // Implementation of the assemble method
+  // 'Assembling an electric car'
 }
 
 class GasCar {
-  // Implementación del método assemble
-  // 'Ensamblando un auto de combustión'
+  // Implementation of the assemble method
+  // 'Assembling a gas car'
 }
 
 class ElectricEngine {
-  // Implementación del método start
-  // 'Arrancando motor eléctrico'
+  // Implementation of the start method
+  // 'Starting electric engine'
 }
 
 class GasEngine {
-  // Implementación del método start
-  // 'Arrancando motor de combustión'
+  // Implementation of the start method
+  // 'Starting gas engine'
 }
 
-// 3. Interfaz de la Fábrica Abstracta
+// 3. Abstract Factory Interface
 
 interface VehicleFactory {
   createVehicle(): Vehicle;
   createEngine(): Engine;
 }
 
-// 4. Clases Concretas de Fábricas
+// 4. Concrete Factory Classes
 
 class ElectricVehicleFactory implements VehicleFactory {
-  // Implementación de los métodos createVehicle y createEngine
+  // Implementation of createVehicle and createEngine methods
 }
 
 class GasVehicleFactory implements VehicleFactory {
-  // Implementación de los métodos createVehicle y createEngine
+  // Implementation of createVehicle and createEngine methods
 }
 
-// 5. Código Cliente
+// 5. Client Code
 
 function main(factory: VehicleFactory) {
   const vehicle = factory.createVehicle();
@@ -86,9 +86,9 @@ function main(factory: VehicleFactory) {
   engine.start();
 }
 
-// Pruebas
-console.log('Creando vehículo eléctrico:');
+// Tests
+console.log('Creating electric vehicle:');
 main(new ElectricVehicleFactory());
 
-console.log('\nCreando vehículo de combustión:');
+console.log('\nCreating gas vehicle:');
 main(new GasVehicleFactory());

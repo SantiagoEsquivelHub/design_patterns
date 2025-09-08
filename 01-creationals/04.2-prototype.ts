@@ -1,13 +1,13 @@
 /**
- * ! Patrón Prototype:
+ * ! Prototype Pattern:
 
- * Es un patrón de diseño creacional que nos permite copiar objetos existentes sin hacer
- * que el código dependa de sus clases.
+ * It's a creational design pattern that allows us to copy existing objects without making
+ * the code depend on their classes.
  * 
- * * Es útil cuando queremos duplicar el contenido, 
- * * el título y el autor de un documento, por ejemplo o cualquier objeto complejo.
+ * * It's useful when we want to duplicate the content, 
+ * * the title and author of a document, for example, or any complex object.
  * 
- * https://refactoring.guru/es/design-patterns/prototype
+ * https://refactoring.guru/design-patterns/prototype
  */
 
 class Pokemon {
@@ -20,32 +20,32 @@ class Pokemon {
     throw new Error('Method not implemented.');
   }
 
-  // Método para clonar el Pokémon
+  // Method to clone the Pokémon
   clone(): Pokemon {
-    // Los ataques deben de evitar pasarse por referencia, es decir, no deben de ser el mismo arreglo.
-    // Completar: Debe devolver un nuevo Pokémon con los mismos atributos
+    // The attacks should avoid being passed by reference, i.e., they should not be the same array.
+    // Complete: Should return a new Pokémon with the same attributes
   }
 
   displayInfo(): void {
     console.log(
-      `Nombre: ${this.name}\nTipo: ${this.type}\nNivel: ${
+      `Name: ${this.name}\nType: ${this.type}\nLevel: ${
         this.level
-      }\nAtaques: ${this.attacks.join(', ')}`
+      }\nAttacks: ${this.attacks.join(', ')}`
     );
   }
 }
 
-// Tarea:
-// 1. Crear un Pokémon base.
-// 2. Clonar el Pokémon base y modificar algunos atributos en los clones.
-// 3. Llamar a displayInfo en cada Pokémon para mostrar sus detalles.
+// Task:
+// 1. Create a base Pokémon.
+// 2. Clone the base Pokémon and modify some attributes in the clones.
+// 3. Call displayInfo on each Pokémon to show their details.
 
-// Ejemplo:
-// const basePokemon = new Pokemon("Charmander", "Fuego", 1, ["Llamarada", "Arañazo"]);
+// Example:
+// const basePokemon = new Pokemon("Charmander", "Fire", 1, ["Ember", "Scratch"]);
 // const clone1 = basePokemon.clone();
 // clone1.name = "Charmeleon";
 // clone1.level = 16;
-// clone1.attacks.push("Lanzallamas");
+// clone1.attacks.push("Flamethrower");
 
-// basePokemon.displayInfo(); // Aquí no debe de aparecer "Lanzallamas"
+// basePokemon.displayInfo(); // Here "Flamethrower" should not appear
 // clone1.displayInfo();

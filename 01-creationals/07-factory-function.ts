@@ -1,9 +1,9 @@
 /**
  * ! Factory Function
- * Es un patrón de diseño que nos permite crear objetos o funciones de manera dinámica que serán
- * usados posteriormente en el código.
+ * It's a design pattern that allows us to create objects or functions dynamically that will be
+ * used later in the code.
  *
- * * Es útil cuando necesitamos crear objetos o funciones de manera dinámica,
- * * es decir, en tiempo de ejecución y no en tiempo de compilación.
+ * * It's useful when we need to create objects or functions dynamically,
+ * * that is, at runtime and not at compile time.
  *
  */

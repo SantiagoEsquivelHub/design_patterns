@@ -1,19 +1,19 @@
 /**
  * ! Abstract Factory:
- * Es un patrón de diseño que permite crear familias de objetos relacionados
- * sin especificar sus clases concretas.
+ * It's a design pattern that allows creating families of related objects
+ * without specifying their concrete classes.
  *
- * En lugar de crear objetos individuales directamente,
- * creamos fábricas que producen un conjunto de objetos relacionados.
+ * Instead of creating individual objects directly,
+ * we create factories that produce a set of related objects.
  *
- * * Es útil cuando necesitas crear objetos que son parte de una familia
- * * y quieres asegurarte de que estos objetos se complementen entre sí.
+ * * It's useful when you need to create objects that are part of a family
+ * * and you want to ensure that these objects complement each other.
  *
- * https://refactoring.guru/es/design-patterns/abstract-factory
+ * https://refactoring.guru/design-patterns/abstract-factory
  */
 
 /**
- *  El propósito del Abstract Factory es crear familias de objetos relacionados
- *  (en este caso, hamburguesas y bebidas) sin especificar las clases concretas
- *  de cada uno de esos objetos en el código principal.
+ *  The purpose of the Abstract Factory is to create families of related objects
+ *  (in this case, hamburgers and drinks) without specifying the concrete classes
+ *  of each of those objects in the main code.
  */

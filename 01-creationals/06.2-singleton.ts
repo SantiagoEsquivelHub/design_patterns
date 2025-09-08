@@ -1,11 +1,11 @@
 /**
  * ! Singleton:
- * Es un patrón de diseño creacional que garantiza que una clase
- * tenga una única instancia y proporciona un punto de acceso global a ella.
+ * It's a creational design pattern that ensures a class
+ * has only one instance and provides a global access point to it.
  *
- * * Es útil cuando necesitas controlar el acceso a una única instancia
- * * de una clase, como por ejemplo, en un objeto de base de datos o en un
- * * objeto de configuración.
+ * * It's useful when you need to control access to a single instance
+ * * of a class, for example, in a database object or a
+ * * configuration object.
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -14,39 +14,39 @@ class DatabaseConnection {
   private static instance: DatabaseConnection;
   private connected: boolean = false;
 
-  // Constructor privado para evitar instancias directas
+  // Private constructor to prevent direct instances
   private constructor() {}
 
-  // Método estático para obtener la instancia única
+  // Static method to get the unique instance
   public static getInstance(): DatabaseConnection {
-    // Completar: implementar el patrón Singleton
+    // Complete: implement the Singleton pattern
     throw new Error('Method not implemented.');
   }
 
-  // Método para conectar a la base de datos
+  // Method to connect to the database
   public connect(): void {
-    // Completar: si no está conectado, mostrar mensaje de conexión
+    // Complete: if not connected, show connection message
   }
 
-  // Método para desconectar de la base de datos
+  // Method to disconnect from the database
   public disconnect(): void {
-    // Completar: desconectar y mostrar mensaje de desconexión
+    // Complete: disconnect and show disconnection message
   }
 }
 
-// Pruebas
+// Tests
 function main() {
   const db1 = DatabaseConnection.getInstance();
-  db1.connect(); // Debería conectar a la base de datos
+  db1.connect(); // Should connect to the database
 
   const db2 = DatabaseConnection.getInstance();
-  db2.connect(); // Debería mostrar que ya existe una conexión activa
+  db2.connect(); // Should show that there's already an active connection
 
-  console.log('Son iguales:', db1 === db2); // Debería mostrar true
+  console.log('Are they equal:', db1 === db2); // Should show true
 
-  db1.disconnect(); // Debería cerrar la conexión
+  db1.disconnect(); // Should close the connection
 
-  db2.connect(); // Ahora debería conectar de nuevo, ya que se cerró la anterior
+  db2.connect(); // Now it should connect again, since the previous one was closed
 }
 
 main();

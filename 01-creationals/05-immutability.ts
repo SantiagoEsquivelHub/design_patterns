@@ -1,8 +1,8 @@
 /**
- * ! Inmutabilidad con copia
- * Aunque la inmutabilidad es una buena práctica, no siempre es posible.
- * En estos casos, se puede hacer una copia del objeto y modificar la copia.
+ * ! Immutability with copy
+ * Although immutability is a good practice, it's not always possible.
+ * In these cases, you can make a copy of the object and modify the copy.
  *
- *  * Es útil para mantener un historial de estados en aplicaciones interactivas.
+ *  * It's useful for maintaining a history of states in interactive applications.
  *
  */

@@ -1,53 +1,59 @@
 /**
  * ! Factory Method:
- * El patrón Factory Method permite crear objetos sin especificar
- * la clase exacta del objeto que se creará.
+ * The Factory Method pattern allows creating objects without specifying
+ * the exact class of the object that will be created.
  *
- * En lugar de eso, delegamos la creación de objetos a subclases o métodos
- * que encapsulan esta lógica.
+ * Instead of that, we delegate object creation to subclasses or methods
+ * that encapsulate this logic.
  *
- * * Es útil cuando una clase no puede anticipar la clase
- * * de objetos que debe crear.
+ * * It's useful when a class cannot anticipate the class
+ * * of objects it must create.
  *
- * https://refactoring.guru/es/design-patterns/factory-method
+ * https://refactoring.guru/design-patterns/factory-method
  */
 
 /**
- * 	!Descripción:
-  1.	Completen las clases SalesReport e InventoryReport para implementar 
-      la interfaz Report, generando el contenido de cada reporte en el método generate.
-	  
-  2.	Implementen las clases SalesReportFactory e InventoryReportFactory 
-      para crear instancias de SalesReport y InventoryReport, respectivamente.
+ * 	!Description:
+  1.	Complete the SalesReport and InventoryReport classes to implement 
+      the Report interface, generating the content of each report in the generate method.
+    
+  2.	Implement the SalesReportFactory and InventoryReportFactory classes 
+      to create instances of SalesReport and InventoryReport, respectively.
 
-	3.	Prueben el programa generando diferentes tipos de reportes usando
-      el prompt para seleccionar el tipo de reporte.
+  3.	Test the program by generating different types of reports using
+      the prompt to select the report type.
  */
 
 import { COLORS } from '../helpers/colors.ts';
 
-// 1. Definir la interfaz Report
+// 1. Define the Report interface
 interface Report {
   generate(): void;
 }
 
-// 2. Clases concretas de Reportes
-// Implementar SalesReport e InventoryReport
+// 2. Concrete Report classes
+// Implement SalesReport and InventoryReport
 
 class SalesReport implements Report {
-  // TODO: implementar el método e imprimir en consola:
-  // 'Generando reporte de ventas...'
+  // TODO: implement the method and print to console:
+  // 'Generating sales report...'
+  generate(): void {
+    console.log('Generating %csales report', COLORS.orange);
+  }
 }
 
 class InventoryReport implements Report {
-  // TODO: implementar el método e imprimir en consola:
-  // 'Generando reporte de inventario...'
+  // TODO: implement the method and print to console:
+  // 'Generating inventory report...'
+  generate(): void {
+    console.log('Generating %cinventory report', COLORS.orange);
+  }
 }
 
-// 3. Clase Base ReportFactory con el Método Factory
+// 3. Base ReportFactory class with the Factory Method
 
 abstract class ReportFactory {
-  abstract createReport(): Report;
+  protected abstract createReport(): Report;
 
   generateReport(): void {
     const report = this.createReport();
@@ -55,28 +61,27 @@ abstract class ReportFactory {
   }
 }
 
-// 4. Clases Concretas de Fábricas de Reportes
+// 4. Concrete Report Factory classes
 
 class SalesReportFactory extends ReportFactory {
   createReport(): Report {
-    throw new Error('Method not implemented.');
+    return new SalesReport;
   }
 }
 
 class InventoryReportFactory extends ReportFactory {
   createReport(): Report {
-    throw new Error('Method not implemented.');
+    return new InventoryReport;
   }
 }
 
-// 5. Código Cliente para Probar
+// 5. Client code for testing
 
 function main() {
   let reportFactory: ReportFactory;
 
   const reportType = prompt(
-    '¿Qué tipo de reporte deseas? %c(sales/inventory)',
-    COLORS.red
+    'What type of report do you want? (sales/inventory)'
   );
 
   if (reportType === 'sales') {

@@ -1,17 +1,17 @@
 import { COLORS } from '../helpers/colors.ts';
 /**
- * ! Patrón Builder:
- * Es un patrón de diseño creacional que nos permite construir objetos complejos
- * paso a paso.
+ * ! Builder Pattern:
+ * It's a creational design pattern that allows us to build complex objects
+ * step by step.
  *
- * El patrón nos permite producir distintos tipos y representaciones
- * de un objeto empleando el mismo código de construcción.
+ * The pattern allows us to produce different types and representations
+ * of an object using the same construction code.
  *
- * * Es útil cuando necesitamos construir un objeto complejo con muchas partes
- * * y queremos que el proceso de construcción sea independiente de las partes
- * * que lo componen.
+ * * It's useful when we need to build a complex object with many parts
+ * * and we want the construction process to be independent of the parts
+ * * that compose it.
  *
- * https://refactoring.guru/es/design-patterns/builder
+ * https://refactoring.guru/design-patterns/builder
  */
 
 class Computer {
@@ -80,7 +80,7 @@ function main() {
         .setGPU('Nvidia RTX 5090')
         .build()
 
-    console.log('%cGamimg Computer: ', COLORS.cyan);
+    console.log('%cGaming Computer: ', COLORS.cyan);
     gamingComputer.displayConfiguration();
 }
 

@@ -1,11 +1,11 @@
 /**
  * ! Singleton:
- * Es un patrón de diseño creacional que garantiza que una clase
- * tenga una única instancia y proporciona un punto de acceso global a ella.
+ * It's a creational design pattern that ensures a class
+ * has only one instance and provides a global access point to it.
  *
- * * Es útil cuando necesitas controlar el acceso a una única instancia
- * * de una clase, como por ejemplo, en un objeto de base de datos o en un
- * * objeto de configuración.
+ * * It's useful when you need to control access to a single instance
+ * * of a class, for example, in a database object or a
+ * * configuration object.
  *
- * https://refactoring.guru/es/design-patterns/singleton
+ * https://refactoring.guru/design-patterns/singleton
  */

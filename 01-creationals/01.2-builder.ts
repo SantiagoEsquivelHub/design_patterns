@@ -1,30 +1,30 @@
 /**
- * ! Patrón Builder:
- * Es un patrón de diseño creacional que nos permite construir objetos complejos
- * paso a paso.
+ * ! Builder Pattern:
+ * It's a creational design pattern that allows us to build complex objects
+ * step by step.
  *
- * El patrón nos permite producir distintos tipos y representaciones
- * de un objeto empleando el mismo código de construcción.
+ * The pattern allows us to produce different types and representations
+ * of an object using the same construction code.
  *
- * * Es útil cuando necesitamos construir un objeto complejo con muchas partes
- * * y queremos que el proceso de construcción sea independiente de las partes
- * * que lo componen.
+ * * It's useful when we need to build a complex object with many parts
+ * * and we want the construction process to be independent of the parts
+ * * that compose it.
  */
 
 import { COLORS } from '../helpers/colors.ts';
 
-//! Tarea: crear un QueryBuilder para construir consultas SQL
+//! Task: create a QueryBuilder to build SQL queries
 /**
- * Debe de tener los siguientes métodos:
+ * It should have the following methods:
  * - constructor(table: string)
- * - select(fields: string[]): QueryBuilder -- si no se pasa ningún campo, se seleccionan todos con el (*)
- * - where(condition: string): QueryBuilder - opcional
- * - orderBy(field: string, order: string): QueryBuilder - opcional
- * - limit(limit: number): QueryBuilder - opcional
- * - execute(): string - retorna la consulta SQL
+ * - select(fields: string[]): QueryBuilder -- if no field is passed, select all with (*)
+ * - where(condition: string): QueryBuilder - optional
+ * - orderBy(field: string, order: string): QueryBuilder - optional
+ * - limit(limit: number): QueryBuilder - optional
+ * - execute(): string - returns the SQL query
  * 
- ** Ejemplo de uso:
-  const usersQuery = new QueryBuilder("users") // users es el nombre de la tabla
+ ** Example usage:
+  const usersQuery = new QueryBuilder("users") // users is the table name
     .select("id", "name", "email")
     .where("age > 18")
     .where("country = 'Cri'")
@@ -32,11 +32,11 @@ import { COLORS } from '../helpers/colors.ts';
     .limit(10)
     .execute();
 
-  console.log('Consulta: ', usersQuery);
+  console.log('Query: ', usersQuery);
   // Select id, name, email from users where age > 18 and country = 'Cri' order by name ASC limit 10;
  */
 
-//! Solución
+//! Solution
 
 class QueryBuilder {
   private table: string;
@@ -86,7 +86,7 @@ function main() {
   const usersQuery = new QueryBuilder('users')
     .select('id', 'name', 'email')
     .where('age > 18')
-    .where("country = 'Cri'") // Esto debe de hacer una condición AND
+    .where("country = 'Cri'") // This should make an AND condition
     .orderBy('name', 'ASC')
     .limit(10)
     .execute();

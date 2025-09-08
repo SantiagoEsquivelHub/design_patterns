@@ -1,11 +1,11 @@
 /**
- * ! Patrón Prototype:
+ * ! Prototype Pattern:
 
- * Es un patrón de diseño creacional que nos permite copiar objetos existentes sin hacer
- * que el código dependa de sus clases.
+ * It's a creational design pattern that allows us to copy existing objects without making
+ * the code depend on their classes.
  * 
- * * Es útil cuando queremos duplicar el contenido, 
- * * el título y el autor de un documento, por ejemplo o cualquier objeto complejo.
+ * * It's useful when we want to duplicate the content, 
+ * * the title and author of a document, for example, or any complex object.
  * 
- * https://refactoring.guru/es/design-patterns/prototype
+ * https://refactoring.guru/design-patterns/prototype
  */
