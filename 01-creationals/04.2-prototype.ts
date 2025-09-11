@@ -10,6 +10,8 @@
  * https://refactoring.guru/design-patterns/prototype
  */
 
+import { COLORS } from "../helpers/colors.ts";
+
 class Pokemon {
   name: string;
   type: string;
@@ -17,20 +19,28 @@ class Pokemon {
   attacks: string[];
 
   constructor(name: string, type: string, level: number, attacks: string[]) {
-    throw new Error('Method not implemented.');
+    this.name = name;
+    this.type = type;
+    this.level = level;
+    this.attacks = attacks;
   }
 
   // Method to clone the Pokémon
   clone(): Pokemon {
     // The attacks should avoid being passed by reference, i.e., they should not be the same array.
     // Complete: Should return a new Pokémon with the same attributes
+    return new Pokemon(
+      this.name,
+      this.type,
+      this.level,
+      [...this.attacks]
+    );
   }
 
   displayInfo(): void {
     console.log(
-      `Name: ${this.name}\nType: ${this.type}\nLevel: ${
-        this.level
-      }\nAttacks: ${this.attacks.join(', ')}`
+      `Name: ${this.name}\nType: ${this.type}\nLevel: ${this.level
+      }\nAttacks: ${this.attacks.join(', ')}\n`
     );
   }
 }
@@ -41,11 +51,15 @@ class Pokemon {
 // 3. Call displayInfo on each Pokémon to show their details.
 
 // Example:
-// const basePokemon = new Pokemon("Charmander", "Fire", 1, ["Ember", "Scratch"]);
-// const clone1 = basePokemon.clone();
-// clone1.name = "Charmeleon";
-// clone1.level = 16;
-// clone1.attacks.push("Flamethrower");
+const basePokemon = new Pokemon("Charmander", "Fire", 1, ["Ember", "Scratch"]);
+const clone1 = basePokemon.clone();
+clone1.name = "Charmeleon";
+clone1.level = 16;
+clone1.attacks.push("Flamethrower");
 
-// basePokemon.displayInfo(); // Here "Flamethrower" should not appear
-// clone1.displayInfo();
+
+console.log('%cCharmander', COLORS.red);
+basePokemon.displayInfo();
+
+console.log('%cCharmeleon', COLORS.pink);
+clone1.displayInfo();
