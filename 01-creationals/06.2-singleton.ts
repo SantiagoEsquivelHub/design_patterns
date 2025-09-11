@@ -15,22 +15,39 @@ class DatabaseConnection {
   private connected: boolean = false;
 
   // Private constructor to prevent direct instances
-  private constructor() {}
+  private constructor() { }
 
   // Static method to get the unique instance
   public static getInstance(): DatabaseConnection {
     // Complete: implement the Singleton pattern
-    throw new Error('Method not implemented.');
+    if (!DatabaseConnection.instance) {
+      DatabaseConnection.instance = new DatabaseConnection();
+      console.log('%cConnected to database', COLORS.green);
+    }
+
+    return DatabaseConnection.instance;
   }
 
   // Method to connect to the database
   public connect(): void {
     // Complete: if not connected, show connection message
+    if (this.connected) {
+      console.log('%cWe were already connected to database', COLORS.cyan);
+      return;
+    }
+    this.connected = true;
+    console.log('%cDatabase has been connected again', COLORS.green);
   }
 
   // Method to disconnect from the database
   public disconnect(): void {
     // Complete: disconnect and show disconnection message
+    if (this.connected) {
+      this.connected = false;
+      console.log('%cDatabase has been disconnect', COLORS.red);
+      return;
+    }
+    console.log('There is not an active connection', COLORS.gray);
   }
 }
 
